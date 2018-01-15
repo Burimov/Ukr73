@@ -16,23 +16,29 @@ class SuperStr(str):
     def is_palindrom(self):
         # -*- coding: utf-8 -*-
 
-        chet = len(self)%2
-        half_len = len(self)/2
+        half_len = len(self) / 2
         l_begin = []
         l_end = []
 
-        # l_begin набить прямой строкой
-        # l_end набить реверснутой
-        # сравнить, одинаковы ли они до половины
+        for i in self:
+            l_begin.append(i)
+            l_end.append(i)
 
+        l_end.reverse()
 
+        k = 0
         for i in range(half_len):
-            pass
+            if l_begin[i] != l_end[i]:
+                k += 1
+                break
 
-        return self
+        if k == 0:
+            return True
+        else:
+            return False
 
 
-s = SuperStr('121121121121')
+s = SuperStr('1210121')
 
 print s.is_repeatance('121')
 print s.is_palindrom()
